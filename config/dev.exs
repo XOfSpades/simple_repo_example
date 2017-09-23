@@ -12,9 +12,9 @@ config :logger, :console, level: :debug, format: "[$level] $message\n"
 
 config :simple_repo_example, SimpleRepoExample.Repo,
   adapter: Ecto.Adapters.Postgres,
-  database: "simple_repo_dev",
-  username: "simple_repo_dev",
-  password: "exs#exs456",
-  hostname: "simple-repo-postgres-s",
+  database: "simple_repo_example_dev",
+  username: "simple_repo_example_dev",
+  password: "exs#exs123",
+  hostname: "127.0.0.1",
   port: "5432",
   pool_size: 10

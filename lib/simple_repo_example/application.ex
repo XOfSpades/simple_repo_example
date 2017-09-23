@@ -17,4 +17,6 @@ defmodule SimpleRepoExample.Application do
     opts = [strategy: :one_for_one, name: SimpleRepoExample.Supervisor]
     Supervisor.start_link(children, opts)
   end
+
+  def hello, do: :world
 end

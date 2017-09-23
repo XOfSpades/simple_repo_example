@@ -1,8 +1,8 @@
-defmodule SimpleRepoExampleTest do
+defmodule SimpleRepoExample.ApplicationTest do
   use ExUnit.Case
-  doctest SimpleRepoExample
+  doctest SimpleRepoExample.Application
 
   test "greets the world" do
-    assert SimpleRepoExample.hello() == :world
+    assert SimpleRepoExample.Application.hello() == :world
   end
 end

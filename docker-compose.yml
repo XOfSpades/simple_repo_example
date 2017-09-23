@@ -1,0 +1,65 @@
+version: '2'
+services:
+
+################################################################################
+#################################### dev #######################################
+################################################################################
+
+  # simple-repo-example-dev-s:
+  #   image: xofspades/simple-repo-example:latest
+  #   container_name: simple-repo-example-dev-c
+  #   build:
+  #     context: .
+  #     args:
+  #       - mix_env=dev
+  #   command: mix do ecto.create, ecto.migrate, phx.server
+  #   ports:
+  #     - "8009:8009"
+  #   volumes:
+  #     - ./resources:/resources
+  #     - .:/app
+  #     - ./config:/meta_folder/config
+  #   depends_on:
+  #     - simple-repo-example-postgres-dev-s
+  #   networks:
+  #     - "simple-repo-example-n"
+
+  simple-repo-example-postgres-s:
+    image: postgres:9.6.5-alpine
+    container_name: simple-repo-example-postgres-c
+    env_file:
+      - ./env_lists/dev_env.list
+    ports:
+      - "5432:5432"
+    volumes:
+      - simple-repo-example-postgres-data-dev-v:/var/lib/postgresql/data
+    networks:
+      - "simple-repo-example-n"
+
+################################################################################
+#################################### test ######################################
+################################################################################
+
+  simple-repo-example-postgres-test-s:
+    image: postgres:9.6.5-alpine
+    container_name: simple-repo-example-postgres-test-c
+    env_file:
+      - ./env_lists/test_env.list
+    ports:
+      - "5432:5432"
+    volumes:
+      - simple-repo-example-postgres-data-test-v:/var/lib/postgresql/data
+    networks:
+      - "simple-repo-example-n"
+
+################################################################################
+################################################################################
+################################################################################
+
+volumes:
+  simple-repo-example-postgres-data-dev-v :
+  simple-repo-example-postgres-data-test-v :
+
+networks:
+  simple-repo-example-n:
+    external: true
