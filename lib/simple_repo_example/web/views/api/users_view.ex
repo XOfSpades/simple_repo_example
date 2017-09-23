@@ -1,4 +1,4 @@
-defmodule SimpleRepoExample.Web.Api.FoldersView do
+defmodule SimpleRepoExample.Web.Api.UsersView do
   use SimpleRepoExample.Web, :view
   alias SimpleRepoExample.Web.Api.ErrorView
 
