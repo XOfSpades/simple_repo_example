@@ -16,9 +16,7 @@ defmodule SimpleRepoExample.Web.Api.UsersController do
 
   def update(conn, _), do: ApiController.update(conn, User, org_scope(conn))
 
-  def delete(conn, _) do
-    ApiController.delete(conn, User, org_scope(conn))
-  end
+  def delete(conn, _), do: ApiController.delete(conn, User, org_scope(conn))
 
   defp org_scope(conn) do
     IO.inspect(fetch_query_params(conn))
