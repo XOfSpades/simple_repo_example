@@ -1,10 +1,8 @@
 defmodule SimpleRepoExample.Web.Api.ApiController do
   import Plug.Conn
   use SimpleRepoExample.Web, :controller
-  use SimpleRepo.Repository, repo: SimpleRepoExample.Repo
-  alias SimpleRepoExample.Repository
-  alias SimpleRepoExample.Pager
   alias SimpleRepoExample.Web.ConnHelper
+  alias SimpleRepoExample.Repository
 
   def create(conn, base_struct) do
     case Repository.save(base_struct, conn.assigns.request_body) do
@@ -16,23 +14,21 @@ defmodule SimpleRepoExample.Web.Api.ApiController do
 
   def show(conn, model, scope \\ []) do
     id = id(conn)
-    case Repository.get(model, id, scope) do
+    case Repository.one(model, id, scope) do
       {:ok, entity} -> render(conn, ".json", %{data: entity})
       {:error, :not_found} -> render_not_found(conn, id)
     end
   end
 
   def index(conn, model, scope \\ []) do
-    entitys = model
-    |> Pager.paginate(pagination_params(conn))
-    |> Repository.all(scope)
-    render(conn, ".json", %{data: entitys})
+    entities = model |> Repository.all
+    render(conn, ".json", %{data: entities})
   end
 
   def update(conn, model, scope \\ []) do
     id = id(conn)
     params = conn.assigns.request_body
-    case Repository.update(model, id, params, scope) do
+    case Repository.patch(model, id, params, scope) do
       {:ok, entity} -> render(conn, ".json", %{data: entity})
       {:error, :not_found} -> render_not_found(conn, id)
       {:error, changeset} -> render_invalid(conn, changeset)
@@ -41,7 +37,7 @@ defmodule SimpleRepoExample.Web.Api.ApiController do
 
   def delete(conn, model, scope \\ []) do
     id = id(conn)
-    case Repository.delete(model, id, scope) do
+    case Repository.destroy(model, id, scope) do
       {:ok, entity} -> render(conn, ".json", %{data: entity}) # maybe head_no_content?
       {:error, :not_found} -> render_not_found(conn, id)
     end
@@ -63,12 +59,5 @@ defmodule SimpleRepoExample.Web.Api.ApiController do
   defp id(conn) do
     [_, _, _, id | _] = conn.path_info
     id
-  end
-
-  defp pagination_params(conn) do
-    %{
-      page: ConnHelper.query_int(conn, :page),
-      page_size: ConnHelper.query_int(conn, :pagesize)
-    }
   end
 end
