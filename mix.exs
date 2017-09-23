@@ -15,12 +15,10 @@ defmodule SimpleRepoExample.Mixfile do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      [
-        applications: [
-          :logger, :cowboy, :phoenix, :postgrex, :ecto
-        ],
-        mod: {SimpleRepoExample.Application, []}
-      ]
+      applications: [
+        :logger, :cowboy, :phoenix, :postgrex, :ecto
+      ],
+      mod: {SimpleRepoExample.Application, []}
     ]
   end
 
@@ -28,6 +26,7 @@ defmodule SimpleRepoExample.Mixfile do
   defp deps do
     [
       {:simple_repo, "~> 0.2.0-rc1"},
+      {:cowboy, "~> 1.0.4"},
       {:phoenix, "~> 1.3" },
       {:phoenix_live_reload, "~> 1.0"}
 
