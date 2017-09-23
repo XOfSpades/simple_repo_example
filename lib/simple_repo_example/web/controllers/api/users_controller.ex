@@ -1,12 +1,12 @@
-defmodule SimpleRepoSample.Web.Api.UsersController do
+defmodule SimpleRepoExample.Web.Api.UsersController do
   import Plug.Conn
-  import SimpleRepoSample.Web.ConnHelper
+  import SimpleRepoExample.Web.ConnHelper
   require Logger
-  use SimpleRepoSample.Web, :controller
-  alias SimpleRepoSample.Web.Api.ApiController
-  alias SimpleRepoSample.Data.User
+  use SimpleRepoExample.Web, :controller
+  alias SimpleRepoExample.Web.Api.ApiController
+  alias SimpleRepoExample.Data.User
 
-  @deserializer SimpleRepoSample.Data.UserDeserializer
+  @deserializer SimpleRepoExample.Data.UserDeserializer
 
   def create(conn, _), do: ApiController.create(conn, %User{})
 

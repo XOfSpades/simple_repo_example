@@ -1,6 +1,6 @@
 use Mix.Config
 
-config :simple_repo_sample, SimpleRepoSample.Web.Endpoint,
+config :simple_repo_example, SimpleRepoExample.Web.Endpoint,
   http: [port: 8002],
   debug_errors: true,
   code_reloader: true,
@@ -10,7 +10,7 @@ config :simple_repo_sample, SimpleRepoSample.Web.Endpoint,
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, level: :debug, format: "[$level] $message\n"
 
-config :simple_repo_sample, SimpleRepoSample.Repo,
+config :simple_repo_example, SimpleRepoExample.Repo,
   adapter: Ecto.Adapters.Postgres,
   database: "simple_repo_test",
   username: "simple_repo_test",

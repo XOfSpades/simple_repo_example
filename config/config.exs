@@ -2,6 +2,6 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
-config :simple_repo_sample, ecto_repos: [SimpleRepoSample.Repo]
+config :simple_repo_example, ecto_repos: [SimpleRepoExample.Repo]
 
 import_config "#{Mix.env}.exs"

@@ -1,4 +1,4 @@
-defmodule SimpleRepoSample.Data.User do
+defmodule SimpleRepoExample.Data.User do
   use Ecto.Schema
 
   schema "users" do

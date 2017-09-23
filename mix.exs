@@ -1,9 +1,9 @@
-defmodule SimpleRepoSample.Mixfile do
+defmodule SimpleRepoExample.Mixfile do
   use Mix.Project
 
   def project do
     [
-      app: :simple_repo_sample,
+      app: :simple_repo_example,
       version: "0.1.0",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
@@ -19,7 +19,7 @@ defmodule SimpleRepoSample.Mixfile do
         applications: [
           :logger, :cowboy, :phoenix, :postgrex, :ecto
         ],
-        mod: {SimpleRepoSample.Application, []}
+        mod: {SimpleRepoExample.Application, []}
       ]
     ]
   end

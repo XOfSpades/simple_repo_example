@@ -1,4 +1,4 @@
-defmodule SimpleRepoSample.JsonMapper do
+defmodule SimpleRepoExample.JsonMapper do
   def to_json_tuple({key, value}) do
     [first_part|other_parts] = key |> Atom.to_string |> String.split("_")
 

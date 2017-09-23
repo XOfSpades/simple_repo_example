@@ -8,6 +8,6 @@ defimpl Poison.Encoder, for: Folders.Folder do
   ]
 
   def encode(folder, _options) do
-    SimpleRepoSample.JsonMapper.to_json(folder, @attributes)
+    SimpleRepoExample.JsonMapper.to_json(folder, @attributes)
   end
 end

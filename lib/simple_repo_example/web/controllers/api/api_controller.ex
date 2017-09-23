@@ -1,10 +1,10 @@
-defmodule SimpleRepoSample.Web.Api.ApiController do
+defmodule SimpleRepoExample.Web.Api.ApiController do
   import Plug.Conn
-  use SimpleRepoSample.Web, :controller
-  use SimpleRepo.Repository, repo: SimpleRepoSample.Repo
-  alias SimpleRepoSample.Repository
-  alias SimpleRepoSample.Pager
-  alias SimpleRepoSample.Web.ConnHelper
+  use SimpleRepoExample.Web, :controller
+  use SimpleRepo.Repository, repo: SimpleRepoExample.Repo
+  alias SimpleRepoExample.Repository
+  alias SimpleRepoExample.Pager
+  alias SimpleRepoExample.Web.ConnHelper
 
   def create(conn, base_struct) do
     case Repository.save(base_struct, conn.assigns.request_body) do

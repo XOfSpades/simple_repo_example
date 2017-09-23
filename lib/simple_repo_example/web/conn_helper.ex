@@ -1,4 +1,4 @@
-defmodule SimpleRepoSample.Web.ConnHelper do
+defmodule SimpleRepoExample.Web.ConnHelper do
   def query(conn, value) when is_binary(value) do
     Map.get(Plug.Conn.fetch_query_params(conn).query_params, value, nil)
   end
