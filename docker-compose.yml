@@ -5,26 +5,7 @@ services:
 #################################### dev #######################################
 ################################################################################
 
-  # simple-repo-example-dev-s:
-  #   image: xofspades/simple-repo-example:latest
-  #   container_name: simple-repo-example-dev-c
-  #   build:
-  #     context: .
-  #     args:
-  #       - mix_env=dev
-  #   command: mix do ecto.create, ecto.migrate, phx.server
-  #   ports:
-  #     - "8009:8009"
-  #   volumes:
-  #     - ./resources:/resources
-  #     - .:/app
-  #     - ./config:/meta_folder/config
-  #   depends_on:
-  #     - simple-repo-example-postgres-dev-s
-  #   networks:
-  #     - "simple-repo-example-n"
-
-  simple-repo-example-postgres-s:
+  simple-repo-example-postgres-dev-s:
     image: postgres:9.6.5-alpine
     container_name: simple-repo-example-postgres-c
     env_file:
