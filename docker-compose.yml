@@ -7,7 +7,7 @@ services:
 
   simple-repo-example-postgres-dev-s:
     image: postgres:9.6.5-alpine
-    container_name: simple-repo-example-postgres-c
+    container_name: simple-repo-example-postgres-dev-c
     env_file:
       - ./env_lists/dev_env.list
     ports:
